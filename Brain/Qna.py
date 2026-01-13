@@ -4,14 +4,16 @@ API = fileopen.read()
 fileopen.close()
 
 # Importing
-import openai
+from openai import OpenAI
 from dotenv import load_dotenv
 
 # coding
 
 openai.api_key = API
+
+client = OpenAI()
 load_dotenv()
-completion = openai.Completion()
+#completion = openai.Completion()
 
 def QuestionAnswer(question,chat_log = None):
     Filelog = open("DataBase\\qna_log.txt","r")
@@ -34,5 +36,6 @@ def QuestionAnswer(question,chat_log = None):
     Filelog.close()
     return answer     
 print(QuestionAnswer("What is the capital of India?"))    
+
 
 
